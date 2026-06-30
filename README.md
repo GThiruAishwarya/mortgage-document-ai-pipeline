@@ -1,5 +1,5 @@
 Mortgage Document AI Pipeline
-FinacPlus AI Engineering Intern — Take-Home Assignment (Part 1)
+
 
 Time spent: ~28 hours
 
