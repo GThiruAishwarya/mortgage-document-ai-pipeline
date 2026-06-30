@@ -1,0 +1,66 @@
+<View style="font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto;">
+
+  <!-- Document header info -->
+  <View style="background: #f0f4ff; border-left: 4px solid #3b82f6; padding: 16px; margin-bottom: 20px; border-radius: 4px;">
+    <Header value="Mortgage Field Review" style="font-size: 18px; font-weight: bold; color: #1e3a5f;"/>
+    <Text name="doc_info" value="$doc_info" style="color: #374151; font-size: 14px;"/>
+  </View>
+
+  <!-- Field identification -->
+  <View style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+    <View style="background: #fff; border: 1px solid #e5e7eb; padding: 14px; border-radius: 6px;">
+      <Header value="Field Name" style="font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;"/>
+      <Text name="field_name" value="$field_name" style="font-size: 16px; font-weight: bold; color: #111827;"/>
+    </View>
+    <View style="background: #fff; border: 1px solid #e5e7eb; padding: 14px; border-radius: 6px;">
+      <Header value="Source Page" style="font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;"/>
+      <Text name="source_page" value="$source_page" style="font-size: 16px; font-weight: bold; color: #111827;"/>
+    </View>
+  </View>
+
+  <!-- Pipeline extraction result -->
+  <View style="background: #fffbeb; border: 1px solid #f59e0b; padding: 14px; border-radius: 6px; margin-bottom: 16px;">
+    <Header value="Pipeline Extracted Value" style="font-size: 12px; color: #92400e; text-transform: uppercase; letter-spacing: 0.05em;"/>
+    <Text name="extracted_value" value="$extracted_value" style="font-size: 20px; font-weight: bold; color: #92400e; font-family: monospace;"/>
+  </View>
+
+  <!-- Confidence info -->
+  <View style="background: #fef2f2; border: 1px solid #fca5a5; padding: 12px; border-radius: 6px; margin-bottom: 16px;">
+    <Header value="Why Low Confidence" style="font-size: 12px; color: #991b1b; text-transform: uppercase; letter-spacing: 0.05em;"/>
+    <Text name="confidence_reason" value="$confidence_reason" style="color: #7f1d1d; font-size: 14px;"/>
+  </View>
+
+  <!-- Evidence from document -->
+  <View style="background: #f9fafb; border: 1px solid #d1d5db; padding: 14px; border-radius: 6px; margin-bottom: 20px;">
+    <Header value="Evidence (text extracted from document)" style="font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;"/>
+    <Text name="evidence" value="$evidence" style="font-family: monospace; font-size: 13px; color: #374151; white-space: pre-wrap;"/>
+  </View>
+
+  <!-- Reviewer verdict -->
+  <View style="margin-bottom: 20px;">
+    <Header value="Is the extracted value correct?" style="font-size: 14px; font-weight: bold; color: #111827; margin-bottom: 8px;"/>
+    <Choices name="verdict" toName="field_name" choice="single" required="true">
+      <Choice value="correct" style="color: #15803d; font-weight: bold;">✅ Correct — pipeline got it right</Choice>
+      <Choice value="wrong" style="color: #dc2626; font-weight: bold;">❌ Wrong — I will enter the correct value below</Choice>
+      <Choice value="unsure" style="color: #d97706; font-weight: bold;">⚠️ Unsure — flag for engineer review</Choice>
+    </Choices>
+  </View>
+
+  <!-- Corrected value input -->
+  <View style="margin-bottom: 20px;">
+    <Header value="Corrected Value (leave blank if the extracted value is correct)" style="font-size: 14px; font-weight: bold; color: #111827; margin-bottom: 8px;"/>
+    <TextArea name="corrected_value" toName="field_name"
+              placeholder="Enter corrected value exactly as it appears in the document (e.g. $5,890.00)"
+              rows="2"
+              style="font-family: monospace; font-size: 15px;"/>
+  </View>
+
+  <!-- Reviewer notes -->
+  <View style="margin-bottom: 20px;">
+    <Header value="Notes (optional — e.g. which page/section you found the correct value)" style="font-size: 14px; color: #374151; margin-bottom: 8px;"/>
+    <TextArea name="reviewer_notes" toName="field_name"
+              placeholder="Optional: where did you find the correct value? Any other context."
+              rows="2"/>
+  </View>
+
+</View>

@@ -1,0 +1,33 @@
+# Core UI
+streamlit>=1.35.0
+
+# Environment variable loading
+python-dotenv>=1.0.0
+
+# Data handling
+pandas>=2.0.0
+
+# Groq API client
+groq>=0.9.0
+
+# PDF processing
+PyMuPDF>=1.24.0
+pdfplumber>=0.11.0
+
+# AI / validation
+pydantic>=2.0.0
+
+# Semantic field name resolution (Layer 3 in correction_resolver.py)
+# all-MiniLM-L6-v2 model (~22MB) downloads automatically on first run
+sentence-transformers>=3.0.0
+scikit-learn>=1.4.0
+numpy>=1.26.0
+
+# Fuzzy string matching (Layer 4 fallback in correction_resolver.py)
+rapidfuzz>=3.6.0
+
+# Disk-based caching (used by vision_llm)
+diskcache>=5.6.0
+
+# Image processing (page rendering)
+Pillow>=10.0.0
